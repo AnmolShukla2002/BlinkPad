@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Button } from "./ui/button";
+import CreateCollectionSheet from "./CreateCollectionSheet";
 
 function CreateCollectionBtn() {
   const [open, setOpen] = useState(false);
@@ -16,6 +17,7 @@ function CreateCollectionBtn() {
           Create Collection
         </span>
       </Button>
+      <CreateCollectionSheet open={open} onOpenChange={handleOpenChange} />
     </div>
   );
 }
