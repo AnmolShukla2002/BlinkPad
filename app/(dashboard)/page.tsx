@@ -2,7 +2,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { wait } from "@/lib/wait";
 import { currentUser } from "@clerk/nextjs";
 import { Suspense } from "react";
-import prisma from "@/lib/prisma";
+import { prisma } from "@/lib/prisma";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import SadFace from "@/components/icons/SadFace";
 import CreateCollectionBtn from "@/components/CreateCollectionBtn";
@@ -68,4 +68,10 @@ async function CollectionList() {
       </div>
     );
   }
+  return (
+    <div>
+      Collections: {collections.length}
+      <CreateCollectionBtn />
+    </div>
+  );
 }
