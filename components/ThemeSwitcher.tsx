@@ -1,11 +1,10 @@
 "use client";
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
-import { Tabs, TabsList } from "./ui/tabs";
-import { TabsTrigger } from "./ui/tabs";
+import { Tabs, TabsList, TabsTrigger } from "./ui/tabs";
 import { DesktopIcon, MoonIcon, SunIcon } from "@radix-ui/react-icons";
 
-const ThemeSwitcher = () => {
+function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -14,9 +13,10 @@ const ThemeSwitcher = () => {
   }, []);
 
   if (!mounted) return null;
+
   return (
     <Tabs defaultValue={theme}>
-      <TabsList className="border dark:border-neutral-800 dark:bg-[#030303] ">
+      <TabsList className="border dark:border-neutral-800 dark:bg-[#030303]">
         <TabsTrigger value="light" onClick={(e) => setTheme("light")}>
           <SunIcon className="h-[1.2rem] w-[1.2rem]" />
         </TabsTrigger>
@@ -29,6 +29,6 @@ const ThemeSwitcher = () => {
       </TabsList>
     </Tabs>
   );
-};
+}
 
 export default ThemeSwitcher;
